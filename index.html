@@ -1,6 +1,36 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mimic</title><link rel="stylesheet" href="style.css"></head>
-<body><main class="app"><header><div><h1>Mimic</h1><p>Your local camera & media sidekick</p></div><span id="status" class="status">Camera off</span></header>
-<section class="grid"><div class="panel"><video id="preview" autoplay muted playsinline></video><div class="controls"><button id="cameraBtn">Enable camera</button><button id="photoBtn" disabled>Take picture</button><button id="recordBtn" disabled>Record 15s video</button><button id="stopBtn" disabled>Stop</button></div><div id="timer">Ready</div></div>
-<div class="panel"><h2>Talk to Mimic</h2><div id="log" class="log"><div class="msg bot">Try “take a picture” or “record a 15 second video”.</div></div><div class="command"><input id="command" placeholder="Type a command…"><button id="send">Send</button></div><button id="voiceBtn" class="voiceBtn">🎙 Voice command</button></div></section>
-<section class="panel"><div class="galleryHead"><div><h2>Mimic Gallery</h2><p id="storageLabel">Storage: browser gallery only. Choose a folder to save files on your device.</p></div><div class="storageButtons"><button id="folderBtn">Choose save folder</button><button id="clearBtn">Clear gallery</button></div></div><div id="gallery" class="gallery"></div></section><canvas id="canvas" hidden></canvas></main><script src="app.js"></script></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0d1117"><title>Mimic 1.2</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+  <header><div><h1>Mimic <span class="version">1.2</span></h1><p>Your friendly camera and voice sidekick</p></div><span id="status" class="status">Camera off</span></header>
+  <section class="grid">
+    <div class="panel">
+      <h2>Camera</h2><video id="preview" autoplay muted playsinline></video>
+      <div class="controls"><button id="cameraBtn">Enable camera</button><button id="photoBtn" disabled>Take picture</button><button id="recordBtn" disabled>Record 15s video</button><button id="stopBtn" disabled>Stop</button></div>
+      <div id="timer">Ready</div>
+    </div>
+    <div class="panel chatPanel">
+      <div class="chatTitle"><div><h2>Talk to Mimic</h2><p class="subtle">Chat by typing or speaking naturally.</p></div><span class="onlineDot">● Ready</span></div>
+      <div id="log" class="log" aria-live="polite"><div class="msg bot">Hey! I'm Mimic. 😊 Ask me how I'm doing, ask for help, or tell me to take a photo.</div></div>
+      <div class="command"><input id="command" autocomplete="off" placeholder="Say or type something…"><button id="send">Send</button></div>
+      <div class="voiceControls"><button id="voiceBtn" class="voiceBtn">🎙 Speak once</button><button id="wakeBtn" class="wakeBtn">▶ Enable “Hey Mimic”</button></div>
+      <p id="wakeStatus" class="hint">Wake phrase is off. Keep this page open and allow microphone access to use it.</p>
+    </div>
+  </section>
+  <section class="panel settingsPanel">
+    <div><h2>Voice & privacy</h2><p>Voice recognition and spoken replies use your browser. The wake phrase is not a true always-on system service; browser support varies.</p></div>
+    <label class="toggle"><input id="speakToggle" type="checkbox" checked> Speak replies aloud</label>
+    <label class="toggle"><input id="wakeResponseToggle" type="checkbox" checked> Say a response after commands</label>
+  </section>
+  <section class="panel">
+    <div class="galleryHead"><div><h2>Mimic Gallery</h2><p id="storageLabel">Storage: browser gallery only. Choose a folder to also save files on your device.</p></div><div class="storageButtons"><button id="folderBtn">Choose save folder</button><button id="clearBtn">Clear gallery</button></div></div>
+    <div id="gallery" class="gallery"></div>
+  </section>
+  <canvas id="canvas" hidden></canvas>
+  <footer>Basic conversational mode works locally. More open-ended AI answers require connecting a private AI backend.</footer>
+</main><script src="app.js"></script>
+</body></html>
